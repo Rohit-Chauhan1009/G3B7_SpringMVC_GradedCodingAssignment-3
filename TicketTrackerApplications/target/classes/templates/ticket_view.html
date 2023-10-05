@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Ticket Details</title>
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        .ticket-details {
+            font-size: 18px;
+        }
+
+        .ticket-label {
+            font-weight: bold;
+        }
+
+        .back-button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+        <a class="navbar-brand" href="#">Ticket Tracker Application</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" th:href="@{/tickets}">Tickets</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h2 class="text-center mb-4">Ticket Details</h2>
+        <div class="ticket-details">
+            <div class="row mb-3">
+                <div class="col-sm-3 ticket-label">ID:</div>
+                <div class="col-sm-9" th:text="${ticket.id}"></div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3 ticket-label">Title:</div>
+                <div class="col-sm-9" th:text="${ticket.title}"></div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3 ticket-label">Description:</div>
+                <div class="col-sm-9" th:text="${ticket.description}"></div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3 ticket-label">Content:</div>
+                <div class="col-sm-9" th:utext="${ticket.content}"></div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-3 ticket-label">Created Date:</div>
+                <div class="col-sm-9" th:text="${ticket.createdDate}"></div>
+            </div>
+        </div>
+        <a th:href="@{/tickets}" class="btn btn-primary back-button">Back to Tickets</a>
+    </div>
+    <footer class="bg-dark text-light text-center py-2 fixed-bottom">
+        <p>2023 &copy; GreatLearning. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
